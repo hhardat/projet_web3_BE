@@ -45,10 +45,21 @@ const CATALOGUE = [
   }, 
 ];
 
-// Read all the products from the menu
+// Read all the products from the CATALOGUE
 router.get('/', (req, res, next) => {
   console.log('GET /products');
   res.json(CATALOGUE);
 });
+
+// Read one product by ID from the CATALOGUE 
+router.get('/:id', (req, res, next) => {
+  console.log(`GET /products/${req.params.id}`);
+
+  const indexOfProductFound = CATALOGUE.findIndex(p => p.id == req.params.id);
+
+  if(indexOfProductFound < 0 ) return res.sendStatus(404)
+
+  res.json(CATALOGUE[indexOfProductFound]);
+})
 
 module.exports = router;
