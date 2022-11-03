@@ -7,4 +7,8 @@ GET http://localhost:3000/products/4
 ### Read one by id (404 don't exist)
 GET http://localhost:3000/products/10
 
+### Read all products ordered by name
+GET http://localhost:3000/products?order=name
 
+### Read all products ordered by name (reverse order)
+GET http://localhost:3000/products?order=-name

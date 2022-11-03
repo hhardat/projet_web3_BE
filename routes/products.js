@@ -47,8 +47,23 @@ const CATALOGUE = [
 
 // Read all the products from the CATALOGUE
 router.get('/', (req, res, next) => {
+  // verifier si un paramère
+  const orderByName =
+  // Si un parametre a été donné pour le query paramètre 
+  req?.query?.order?.includes('name')
+  // et qu'il contient name
+  ? req.query.order // on le conserve
+  : undefined; // sinon
+
+  let orderedCatalogue;
+  
+  if(orderByName) 
+    // shallow copy ordered by name
+    orderedCatalogue = [...CATALOGUE].sort((p1, p2) => p1.name.localeCompare(p2.name));
+  if(orderByName === '-name') orderedCatalogue = orderedCatalogue.reverse(); 
+  
   console.log('GET /products');
-  res.json(CATALOGUE);
+  res.json(orderedCatalogue ?? CATALOGUE);
 });
 
 // Read one product by ID from the CATALOGUE 
