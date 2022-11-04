@@ -77,4 +77,33 @@ router.get('/:id', (req, res, next) => {
   res.json(CATALOGUE[indexOfProductFound]);
 })
 
+
+// Create a new product to be added to the catalogue.
+router.post('/', (req, res) => {
+  const brand = req?.body?.brand?.length !== 0 ? req.body.brand : 'Unknown';
+  const name = req?.body?.name?.length !== 0 ? req.body.name : undefined;
+  const category = req?.body?.brand?.length !== 0 ? req.body.brand : 'Unknown';
+  const price = req?.body?.price != 0 ? req.body.price : undefined;
+
+  console.log('POST /products');
+
+  if (!name || !price) return res.sendStatus(400); // error code '400 Bad request'
+
+  const lastItemIndex = CATALOGUE?.length !== 0 ? CATALOGUE.length - 1 : undefined;
+  const lastId = lastItemIndex !== undefined ? CATALOGUE[lastItemIndex]?.id : 0;
+  const nextId = lastId + 1;
+
+  const newProduct = {
+    id: nextId,
+    brand: brand,
+    name: name,
+    stars: 0,
+    price : price
+  };
+
+  CATALOGUE.push(newProduct);
+
+  res.json(newProduct);
+});
+
 module.exports = router;
