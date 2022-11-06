@@ -45,10 +45,103 @@ const CATALOGUE = [
   }, 
 ];
 
-// Read all the products from the menu
+// Read all the products from the CATALOGUE
 router.get('/', (req, res, next) => {
+  // verifier si un paramère
+  const orderByName =
+  // Si un parametre a été donné pour le query paramètre 
+  req?.query?.order?.includes('name')
+  // et qu'il contient name
+  ? req.query.order // on le conserve
+  : undefined; // sinon
+
+  let orderedCatalogue;
+  
+  if(orderByName) 
+    // shallow copy ordered by name
+    orderedCatalogue = [...CATALOGUE].sort((p1, p2) => p1.name.localeCompare(p2.name));
+  if(orderByName === '-name') orderedCatalogue = orderedCatalogue.reverse(); 
+  
   console.log('GET /products');
-  res.json(CATALOGUE);
+  res.json(orderedCatalogue ?? CATALOGUE);
 });
 
+// Read one product by ID from the CATALOGUE 
+router.get('/:id', (req, res, next) => {
+  console.log(`GET /products/${req.params.id}`);
+
+  const indexOfProductFound = CATALOGUE.findIndex(p => p.id == req.params.id);
+
+  if(indexOfProductFound < 0 ) return res.sendStatus(404)
+
+  res.json(CATALOGUE[indexOfProductFound]);
+})
+
+
+// Create a new product to be added to the catalogue.
+router.post('/', (req, res) => {
+  const brand = req?.body?.brand?.length !== 0 ? req.body.brand : 'Unknown';
+  const name = req?.body?.name?.length !== 0 ? req.body.name : undefined;
+  const category = req?.body?.brand?.length !== 0 ? req.body.category : 'Unknown';
+  const price = req?.body?.price != 0 ? req.body.price : undefined;
+
+  console.log('POST /products');
+
+  if (!name || !price) return res.sendStatus(400); // error code '400 Bad request'
+
+  const lastItemIndex = CATALOGUE?.length !== 0 ? CATALOGUE.length - 1 : undefined;
+  const lastId = lastItemIndex !== undefined ? CATALOGUE[lastItemIndex]?.id : 0;
+  const nextId = lastId + 1;
+
+  const newProduct = {
+    id: nextId,
+    brand: brand,
+    name: name,
+    category: category,
+    stars: 0,
+    price : price
+  };
+
+  CATALOGUE.push(newProduct);
+
+  res.json(newProduct);
+});
+
+router.delete('/:id', (req,res) => {
+  console.log(`DELETE /products/${req.params.id}`);
+
+  const foundIndex = CATALOGUE.findIndex(p => p.id == req.params.id)
+
+  if (foundIndex < 0) return res.sendStatus(404);
+
+  const itemsRemovedFromCatalogue = CATALOGUE.splice(foundIndex, 1);
+  const itemRemoved = itemsRemovedFromCatalogue[0]
+
+  res.json(itemRemoved);
+})
+
+router.patch('/:id', (req,res) => {
+  console.log(`PATCH /products/${req.params.id}`);
+
+  // Si le client envoie un body vide => res.send(404)
+  if(Object.keys(req?.body).length === 0) return res.sendStatus(400)
+  
+  console.log('POST /products');
+
+  const foundIndex = CATALOGUE.findIndex(p => p.id == req.params.id)
+  
+  if (foundIndex < 0) return res.sendStatus(404);
+
+  const updatedProduct = {...CATALOGUE[foundIndex], ...req.body};
+  
+  console.log('UPDATED product ', updatedProduct)
+
+  CATALOGUE[foundIndex] = updatedProduct;
+
+  res.json(updatedProduct)
+})
+
+/**
+ * Export line
+ */
 module.exports = router;

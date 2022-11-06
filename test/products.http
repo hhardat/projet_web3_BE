@@ -1,2 +1,38 @@
+@baseUrl = http://localhost:3000
+
 ### Read all products
-GET http://localhost:3000/products
+GET {{baseUrl}}/products
+
+### Read one by id
+GET {{baseUrl}}/products/
+
+### Read one by id (404 don't exist)
+GET {{baseUrl}}/products/10
+
+### Read all products ordered by name
+GET {{baseUrl}}/products?order=name
+
+### Read all products ordered by name (reverse order)
+GET {{baseUrl}}/products?order=-name
+
+### Create a product
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+    "brand": "Apple",
+    "name": "MacBook Pro 14 QWERTY",
+    "price": 1400,
+    "category": "Ordinateur Portable"
+}
+
+### DELETE product by ID
+DELETE {{baseUrl}}/products/2
+
+### UPDATE the product by ID 5
+PATCH {{baseUrl}}/products/5
+Content-Type: application/json
+
+{
+    "stars": 1
+}
