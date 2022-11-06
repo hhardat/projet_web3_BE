@@ -82,7 +82,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res) => {
   const brand = req?.body?.brand?.length !== 0 ? req.body.brand : 'Unknown';
   const name = req?.body?.name?.length !== 0 ? req.body.name : undefined;
-  const category = req?.body?.brand?.length !== 0 ? req.body.brand : 'Unknown';
+  const category = req?.body?.brand?.length !== 0 ? req.body.category : 'Unknown';
   const price = req?.body?.price != 0 ? req.body.price : undefined;
 
   console.log('POST /products');
@@ -97,6 +97,7 @@ router.post('/', (req, res) => {
     id: nextId,
     brand: brand,
     name: name,
+    category: category,
     stars: 0,
     price : price
   };
