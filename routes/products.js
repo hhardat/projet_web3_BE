@@ -106,4 +106,7 @@ router.post('/', (req, res) => {
   res.json(newProduct);
 });
 
+/**
+ * Export line
+ */
 module.exports = router;
