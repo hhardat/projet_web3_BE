@@ -106,6 +106,19 @@ router.post('/', (req, res) => {
   res.json(newProduct);
 });
 
+router.delete('/:id', (req,res) => {
+  console.log(`DELETE /products/${req.params.id}`);
+
+  const foundIndex = CATALOGUE.findIndex(p => p.id == req.params.id)
+
+  if (foundIndex < 0) return res.sendStatus(404);
+
+  const itemsRemovedFromCatalogue = CATALOGUE.splice(foundIndex, 1);
+  const itemRemoved = itemsRemovedFromCatalogue[0]
+
+  res.json(itemRemoved);
+})
+
 /**
  * Export line
  */

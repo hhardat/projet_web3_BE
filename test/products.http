@@ -4,7 +4,7 @@
 GET {{baseUrl}}/products
 
 ### Read one by id
-GET http://localhost:3000/products/4
+GET {{baseUrl}}/products/
 
 ### Read one by id (404 don't exist)
 GET {{baseUrl}}/products/10
@@ -25,3 +25,6 @@ Content-Type: application/json
     "price": 1400,
     "category": "Ordinateur Portable"
 }
+
+### DELETE product by ID
+DELETE {{baseUrl}}/products/2
