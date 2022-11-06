@@ -120,6 +120,27 @@ router.delete('/:id', (req,res) => {
   res.json(itemRemoved);
 })
 
+router.patch('/:id', (req,res) => {
+  console.log(`PATCH /products/${req.params.id}`);
+
+  // Si le client envoie un body vide => res.send(404)
+  if(Object.keys(req?.body).length === 0) return res.sendStatus(400)
+  
+  console.log('POST /products');
+
+  const foundIndex = CATALOGUE.findIndex(p => p.id == req.params.id)
+  
+  if (foundIndex < 0) return res.sendStatus(404);
+
+  const updatedProduct = {...CATALOGUE[foundIndex], ...req.body};
+  
+  console.log('UPDATED product ', updatedProduct)
+
+  CATALOGUE[foundIndex] = updatedProduct;
+
+  res.json(updatedProduct)
+})
+
 /**
  * Export line
  */

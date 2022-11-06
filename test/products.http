@@ -28,3 +28,11 @@ Content-Type: application/json
 
 ### DELETE product by ID
 DELETE {{baseUrl}}/products/2
+
+### UPDATE the product by ID 5
+PATCH {{baseUrl}}/products/5
+Content-Type: application/json
+
+{
+    "stars": 1
+}
