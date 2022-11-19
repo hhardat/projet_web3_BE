@@ -1,5 +1,9 @@
 var express = require('express');
+const { serialize, parse } = require('../utils/json');
 var router = express.Router();
+
+const jsonDbPath = __dirname + '/../data/products.json';
+
 
 const CATALOGUE = [
   {
@@ -56,25 +60,29 @@ router.get('/', (req, res, next) => {
   : undefined; // sinon
 
   let orderedCatalogue;
+
+  const catalogue = parse(jsonDbPath, CATALOGUE);
   
   if(orderByName) 
     // shallow copy ordered by name
-    orderedCatalogue = [...CATALOGUE].sort((p1, p2) => p1.name.localeCompare(p2.name));
+    orderedCatalogue = [...catalogue].sort((p1, p2) => p1.name.localeCompare(p2.name));
   if(orderByName === '-name') orderedCatalogue = orderedCatalogue.reverse(); 
   
   console.log('GET /products');
-  res.json(orderedCatalogue ?? CATALOGUE);
+  res.json(orderedCatalogue ?? catalogue);
 });
 
 // Read one product by ID from the CATALOGUE 
 router.get('/:id', (req, res, next) => {
   console.log(`GET /products/${req.params.id}`);
 
-  const indexOfProductFound = CATALOGUE.findIndex(p => p.id == req.params.id);
+  const catalogue = parse(jsonDbPath, CATALOGUE);
+
+  const indexOfProductFound = catalogue.findIndex(p => p.id == req.params.id);
 
   if(indexOfProductFound < 0 ) return res.sendStatus(404)
 
-  res.json(CATALOGUE[indexOfProductFound]);
+  res.json(catalogue[indexOfProductFound]);
 })
 
 
@@ -89,6 +97,7 @@ router.post('/', (req, res) => {
 
   if (!name || !price) return res.sendStatus(400); // error code '400 Bad request'
 
+  const catalogue = parse(jsonDbPath, CATALOGUE);
   const lastItemIndex = CATALOGUE?.length !== 0 ? CATALOGUE.length - 1 : undefined;
   const lastId = lastItemIndex !== undefined ? CATALOGUE[lastItemIndex]?.id : 0;
   const nextId = lastId + 1;
@@ -102,7 +111,9 @@ router.post('/', (req, res) => {
     price : price
   };
 
-  CATALOGUE.push(newProduct);
+  catalogue.push(newProduct);
+
+  serialize(jsonDbPath,catalogue);
 
   res.json(newProduct);
 });
@@ -110,12 +121,16 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req,res) => {
   console.log(`DELETE /products/${req.params.id}`);
 
-  const foundIndex = CATALOGUE.findIndex(p => p.id == req.params.id)
+  const catalogue = parse(jsonDbPath, CATALOGUE);
+
+  const foundIndex = catalogue.findIndex(p => p.id == req.params.id)
 
   if (foundIndex < 0) return res.sendStatus(404);
 
-  const itemsRemovedFromCatalogue = CATALOGUE.splice(foundIndex, 1);
+  const itemsRemovedFromCatalogue = catalogue.splice(foundIndex, 1);
   const itemRemoved = itemsRemovedFromCatalogue[0]
+
+  serialize(jsonDbPath, catalogue);
 
   res.json(itemRemoved);
 })
@@ -128,16 +143,20 @@ router.patch('/:id', (req,res) => {
   
   console.log('POST /products');
 
-  const foundIndex = CATALOGUE.findIndex(p => p.id == req.params.id)
+  const catalogue = parse(jsonDbPath, CATALOGUE);
+
+  const foundIndex = catalogue.findIndex(p => p.id == req.params.id)
   
   if (foundIndex < 0) return res.sendStatus(404);
 
-  const updatedProduct = {...CATALOGUE[foundIndex], ...req.body};
+  const updatedProduct = {...catalogue[foundIndex], ...req.body};
   
   console.log('UPDATED product ', updatedProduct)
 
-  CATALOGUE[foundIndex] = updatedProduct;
+  catalogue[foundIndex] = updatedProduct;
 
+  serialize(jsonDbPath,catalogue)
+  
   res.json(updatedProduct)
 })
 

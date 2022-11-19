@@ -1,10 +1,10 @@
-@baseUrl = http://localhost:3000
+@baseUrl = http://localhost:3001
 
 ### Read all products
 GET {{baseUrl}}/products
 
 ### Read one by id
-GET {{baseUrl}}/products/
+GET {{baseUrl}}/products/2
 
 ### Read one by id (404 don't exist)
 GET {{baseUrl}}/products/10
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ### DELETE product by ID
-DELETE {{baseUrl}}/products/2
+DELETE {{baseUrl}}/products/6
 
 ### UPDATE the product by ID 5
 PATCH {{baseUrl}}/products/5
