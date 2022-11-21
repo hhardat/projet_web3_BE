@@ -17,6 +17,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use("/photos", express.static("photos"));
 
 app.use('/products', cors(corsOptions),  productRouter);
 app.use('/users', usersRouter);
