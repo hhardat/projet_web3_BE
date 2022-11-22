@@ -12,7 +12,8 @@ const CATALOGUE = [
     name: 'IdeaPad 3 15ALC6 82KU01P6MB AZERTY',
     stars: 5,
     price:599,
-    category:'Ordinateur Portable'
+    category:'Ordinateur Portable',
+    pathImage: 'LIP_15ALC6.jpg'
   },
   {
     id: 2,
@@ -20,7 +21,8 @@ const CATALOGUE = [
     name: 'EW3908',
     stars: 4,
     price:44.99,
-    category:'Alimentations pour ordinateur'
+    category:'Alimentations pour ordinateur',
+    pathImage: 'L_EW3908.jpg'
   },
   {
     id: 3,
@@ -28,7 +30,8 @@ const CATALOGUE = [
     name: 'Focus GX-750',
     stars: 4,
     price: 12.99,
-    category:'Alimentations pour ordinateur'
+    category:'Alimentations pour ordinateur',
+    pathImage: 'SF_GX750W.jpg'
     
   },
   {
@@ -37,7 +40,8 @@ const CATALOGUE = [
     name: 'Evolve2 65 Link380a MS Stéréo Noir',
     stars: 3,
     price:232,
-    category:'Casques de bureau'
+    category:'Casques de bureau',
+    pathImage: 'E_65L380MS.jpg'
   },
   {
     id: 5,
@@ -45,7 +49,8 @@ const CATALOGUE = [
     name: 'H390 Casque Stéréo USB-A',
     stars: 4,
     price:43.99,
-    category:'Casques de bureau'
+    category:'Casques de bureau',
+    pathImage: 'L_H390.jpg'
   }, 
 ];
 
