@@ -36,3 +36,6 @@ Content-Type: application/json
 {
     "stars": 1
 }
+
+### GET Static image
+GET {{baseUrl}}/photos/LIP_15ALC6.jpg
