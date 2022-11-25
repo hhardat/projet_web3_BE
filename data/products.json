@@ -3,7 +3,7 @@
         "id": 1,
         "brand": "Lenovo",
         "name": "IdeaPad 3 15ALC6 82KU01P6MB AZERTY",
-        "stars": 5,
+        "stars": "★★★★★",
         "price": 599,
         "category": "Ordinateur Portable",
         "pathImage": "LIP_15ALC6.jpg"
@@ -12,7 +12,7 @@
         "id": 2,
         "brand": "Logitech",
         "name": "EW3908",
-        "stars": 4,
+        "stars": "★★★★",
         "price": 44.99,
         "category": "Alimentations pour ordinateur",
         "pathImage": "L_EW3908.jpg"
@@ -21,7 +21,7 @@
         "id": 3,
         "brand": "Seasonic",
         "name": "Focus GX-750",
-        "stars": 4,
+        "stars": "★★★★",
         "price": 12.99,
         "category": "Alimentations pour ordinateur",
         "pathImage": "SF_GX750W.jpg"
@@ -30,7 +30,7 @@
         "id": 4,
         "brand": "Jabra",
         "name": "Evolve2 65 Link380a MS Stéréo Noir",
-        "stars": 3,
+        "stars": "★★★",
         "price": 232,
         "category": "Casques de bureau",
         "pathImage": "E_65L380MS.jpg"
@@ -39,7 +39,7 @@
         "id": 5,
         "brand": "Logitech",
         "name": "H390 Casque Stéréo USB-A",
-        "stars": 1,
+        "stars": "★",
         "price": 43.99,
         "category": "Casques de bureau",
         "pathImage": "L_H390.jpg"
@@ -58,7 +58,7 @@
         "brand": "Logitech",
         "name": "M330 Silent Souris Sans Fil Noir",
         "category": "Imprimantes & périphériques",
-        "stars": 4,
+        "stars": "★★★★",
         "price": 41.99,
         "pathImage": "L_M330.jpg"
     },
@@ -67,7 +67,7 @@
         "brand": "BlueBuilt",
         "name": "Batterie Externe 20 000 mAh Power Delivery et Quick Charge",
         "category": "Téléphonie",
-        "stars": 3,
+        "stars": "★★★",
         "price": 59.99,
         "pathImage": "BE_20000MAH.jpg"
     },
@@ -76,7 +76,7 @@
         "brand": "Kobo Libra",
         "name": "Kobo Libra 2 Noir",
         "category": "Tablettes & liseuses",
-        "stars": 4,
+        "stars": "★★★★",
         "price": 169,
         "pathImage": "KL2_N.jpg"
     },
@@ -85,7 +85,7 @@
         "brand": "Samsung",
         "name": "Galaxy A53 128 Go Noir 5G",
         "category": "Téléphonie",
-        "stars": 4,
+        "stars": "★★★★",
         "price": 389,
         "pathImage": "G_A53.jpg"
     },
@@ -94,7 +94,7 @@
         "brand": "Apple",
         "name": "iPhone 14 128 Go Minuit",
         "category": "Téléphonie",
-        "stars": 4,
+        "stars": "★★★★",
         "price": 1019,
         "pathImage": "AIP14.jpg"
     },
@@ -103,7 +103,7 @@
         "brand": "Samsung",
         "name": "QD OLED 55S95B (2022)",
         "category": "Télévision & vidéoprojecteur",
-        "stars": 3,
+        "stars": "★★★",
         "price": 1699,
         "pathImage": "QDOLED_55S95B.jpg"
     },
@@ -112,7 +112,7 @@
         "brand": "Toshiba",
         "name": "Canvio Basics Exclusive 2 To",
         "category": "Mémoire vive & stockage",
-        "stars": 4.5,
+        "stars": "★★★★",
         "price": 98.99,
         "pathImage": "TCB_E2.jpg"
     },
@@ -121,7 +121,7 @@
         "brand": "HTC",
         "name": "Vive Pro 2 sans manettes et stations de base",
         "category": "Casques VR",
-        "stars": 3,
+        "stars":"★★★",
         "price": 719,
         "pathImage": "VP_2.jpg"
     },
@@ -130,7 +130,7 @@
         "brand": "Nokia",
         "name": "8210 4G Bleu",
         "category": "Téléphonie",
-        "stars": 3,
+        "stars": "★★★",
         "price": 73,
         "pathImage": "N_8210.jpg"
     }
