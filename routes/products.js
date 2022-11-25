@@ -8,50 +8,139 @@ const jsonDbPath = __dirname + '/../data/products.json';
 const CATALOGUE = [
   {
     id: 1,
-    brand: 'Lenovo',
-    name: 'IdeaPad 3 15ALC6 82KU01P6MB AZERTY',
-    stars: 5,
-    price:599,
-    category:'Ordinateur Portable',
-    pathImage: 'LIP_15ALC6.jpg'
-  },
-  {
+    brand: "Lenovo",
+    name: "IdeaPad 3 15ALC6 82KU01P6MB AZERTY",
+    stars: "★★★★★",
+    price: 599,
+    category: "Ordinateur Portable",
+    pathImage: "LIP_15ALC6.jpg"
+},
+{
     id: 2,
-    brand:'Logitech',
-    name: 'EW3908',
-    stars: 4,
-    price:44.99,
-    category:'Alimentations pour ordinateur',
-    pathImage: 'L_EW3908.jpg'
-  },
-  {
+    brand: "Logitech",
+    name: "EW3908",
+    stars: "★★★★☆",
+    price: 44.99,
+    category: "Alimentations pour ordinateur",
+    pathImage: "L_EW3908.jpg"
+},
+{
     id: 3,
-    brand:'Seasonic',
-    name: 'Focus GX-750',
-    stars: 4,
+    brand: "Seasonic",
+    name: "Focus GX-750",
+    stars: "★★★★☆",
     price: 12.99,
-    category:'Alimentations pour ordinateur',
-    pathImage: 'SF_GX750W.jpg'
-    
-  },
-  {
+    category: "Alimentations pour ordinateur",
+    pathImage: "SF_GX750W.jpg"
+},
+{
     id: 4,
-    brand:'Jabra',
-    name: 'Evolve2 65 Link380a MS Stéréo Noir',
-    stars: 3,
-    price:232,
-    category:'Casques de bureau',
-    pathImage: 'E_65L380MS.jpg'
-  },
-  {
+    brand: "Jabra",
+    name: "Evolve2 65 Link380a MS Stéréo Noir",
+    stars: "★★★☆☆",
+    price: 232,
+    category: "Casques de bureau",
+    pathImage: "E_65L380MS.jpg"
+},
+{
     id: 5,
-    brand:'Logitech',
-    name: 'H390 Casque Stéréo USB-A',
-    stars: 4,
-    price:43.99,
-    category:'Casques de bureau',
-    pathImage: 'L_H390.jpg'
-  }, 
+    brand: "Logitech",
+    name: "H390 Casque Stéréo USB-A",
+    stars: "★☆☆☆☆",
+    price: 43.99,
+    category: "Casques de bureau",
+    pathImage: "L_H390.jpg"
+},
+{
+    id: 6,
+    brand: "Apple",
+    name: "MacBook Pro 14 QWERTY",
+     category: "Ordinateur Portable",
+    stars: "☆☆☆☆☆",
+    price: 1400,
+    pathImage: "MBP_14.jpg"
+},
+{
+    id: 7,
+    brand: "Logitech",
+    name: "M330 Silent Souris Sans Fil Noir",
+    category: "Imprimantes & périphériques",
+    stars: "★★★★☆",
+    price: 41.99,
+    pathImage: "L_M330.jpg"
+},
+{
+    id: 8,
+    brand: "BlueBuilt",
+    name: "Batterie Externe 20 000 mAh Power Delivery et Quick Charge",
+    category: "Téléphonie",
+    stars: "★★★☆☆",
+    price: 59.99,
+    pathImage: "BE_20000MAH.jpg"
+},
+{
+    id: 9,
+    brand: "Kobo Libra",
+    name: "Kobo Libra 2 Noir",
+    category: "Tablettes & liseuses",
+    stars: "★★★★☆",
+    price: 169,
+    pathImage: "KL2_N.jpg"
+},
+{
+    id: 10,
+    brand: "Samsung",
+    name: "Galaxy A53 128 Go Noir 5G",
+    category: "Téléphonie",
+    stars: "★★★★☆",
+    price: 389,
+    pathImage: "G_A53.jpg"
+},
+{
+    id: 11,
+    brand: "Apple",
+    name: "iPhone 14 128 Go Minuit",
+    category: "Téléphonie",
+    stars: "★★★★☆",
+    price: 1019,
+    pathImage: "AIP14.jpg"
+},
+{
+    id: 12,
+    brand: "Samsung",
+    name: "QD OLED 55S95B (2022)",
+    category: "Télévision & vidéoprojecteur",
+    stars: "★★★☆☆",
+    price: 1699,
+    pathImage: "QDOLED_55S95B.jpg"
+},
+{
+    id: 13,
+    brand: "Toshiba",
+    name: "Canvio Basics Exclusive 2 To",
+    category: "Mémoire vive & stockage",
+    stars: "★★★★☆",
+    price: 98.99,
+    pathImage: "TCB_E2.jpg"
+},
+{
+    id: 14,
+    brand: "HTC",
+    name: "Vive Pro 2 sans manettes et stations de base",
+    category: "Casques VR",
+    stars:"★★★☆☆",
+    price: 719,
+    pathImage: "VP_2.jpg"
+},
+{
+    id: 15,
+    brand: "Nokia",
+    name: "8210 4G Bleu",
+    category: "Téléphonie",
+    stars: "★★★☆☆",
+    price: 73,
+    pathImage: "N_8210.jpg"
+},
 ];
 
 // Read all the products from the CATALOGUE
