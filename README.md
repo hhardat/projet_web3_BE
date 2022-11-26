@@ -16,7 +16,7 @@ Cette application est tout simplement une API qui fournie des données au fronte
 
 ```
 git clone
-npm i
+npm install
 npm start
 
 ```
