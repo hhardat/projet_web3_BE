@@ -12,7 +12,7 @@ Auteurs:
     
 # Backend de l'application ElectroShop
 
-Cette application est tout simplement un Rest API qui fournie des données au frontend de l'applicaiton ElectroShop
+Cette application est tout simplement une API qui fournie des données au frontend de l'applicaiton ElectroShop
 
 ```
 git clone
