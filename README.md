@@ -12,7 +12,9 @@ Auteurs:
     
 # Backend de l'application ElectroShop
 
-Cette application est tout simplement une API qui fournie des données au frontend de l'applicaiton ElectroShop
+Cette application est tout simplement une API qui fournie des données au frontend de l'applicaiton ElectroShop.
+
+Les données sont des produits électroniques et ainsi que différentes catégories de produits.
 
 ```
 git clone
