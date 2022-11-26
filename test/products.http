@@ -47,4 +47,10 @@ Content-Type: application/json
 GET {{baseUrl}}/photos/LIP_15ALC6.jpg
 
 ### GET all categories
+GET {{baseUrl}}/categories/1
+
+### GET all categories
+GET {{baseUrl}}/categories?slug=ordinateurportable
+
+### GET category by slug
 GET {{baseUrl}}/categories
