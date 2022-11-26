@@ -3,6 +3,12 @@
 ### Read all products
 GET {{baseUrl}}/products
 
+### Read all products filtered by category (category name that contains ampersand)
+GET {{baseUrl}}/products?category=Imprimantes%20%26%20périphériques
+
+### Read all products filtered by category (category name that contains blank space)
+GET {{baseUrl}}/products?category=Ordinateur%20Portable
+
 ### Read one by id
 GET {{baseUrl}}/products/2
 
@@ -39,3 +45,6 @@ Content-Type: application/json
 
 ### GET Static image
 GET {{baseUrl}}/photos/LIP_15ALC6.jpg
+
+### GET all categories
+GET {{baseUrl}}/products/categories

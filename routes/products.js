@@ -145,6 +145,12 @@ const CATALOGUE = [
 
 // Read all the products from the CATALOGUE
 router.get('/', (req, res, next) => {
+   // verifier si un paramère
+   const filterCategory = 
+   // Si un parametre a été donné pour le query paramètre 
+   req.query.category
+   // et qu'il contient name
+   console.log(filterCategory)
   // verifier si un paramère
   const orderByName =
   // Si un parametre a été donné pour le query paramètre 
@@ -162,8 +168,32 @@ router.get('/', (req, res, next) => {
     orderedCatalogue = [...catalogue].sort((p1, p2) => p1.name.localeCompare(p2.name));
   if(orderByName === '-name') orderedCatalogue = orderedCatalogue.reverse(); 
   
+  let filteredByCategory ;
+  if(orderedCatalogue){
+    filteredByCategory = orderedCatalogue
+  }else{
+    filteredByCategory = [...catalogue];
+  }
+
+  if(filterCategory){
+    filteredByCategory = filteredByCategory.filter(product => product.category === filterCategory)
+  }
+
   console.log('GET /products');
-  res.json(orderedCatalogue ?? catalogue);
+  res.json( filteredByCategory ?? catalogue);
+});
+
+// Read all categories from the CATALOGUE
+router.get('/categories', (req, res, next) => {
+  // verifier si un paramère
+  const catalogue = parse(jsonDbPath, CATALOGUE);
+  
+  const categoriesSet = new Set(catalogue.map(product => product.category)) 
+
+  console.log('GET /products/categories');
+  // console.log(catalogue)
+  console.log(categoriesSet)
+  res.json(JSON.stringify(Array.from(categoriesSet)));
 });
 
 // Read one product by ID from the CATALOGUE 
