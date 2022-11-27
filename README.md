@@ -10,7 +10,7 @@ Auteurs:
 
 [Rubain Kamegneson Wabo](https://github.com/rubainwabo)
     
-# Backend de l'application ElectroShop
+# Backend de l'application Shop
 
 Cette application est tout simplement une API qui fournie des données au frontend de l'applicaiton ElectroShop.
 
